@@ -10,9 +10,9 @@ def get_user_input():
     while True:
         print("How many sequences would you like?")
         sequences_input = input()  # user types something (comes in as a string)
-
+        
         # Check if the input is a number (only digits, no letters or symbols)
-        if sequences_input.isdigit():
+        if sequences_input.isdigit() and int(sequences_input) > 0:
             sequences = int(sequences_input)  # convert the string to an integer
             return sequences
         else:
@@ -20,12 +20,9 @@ def get_user_input():
 
 
 def generate_fibonacci(sequences):
-    # Case 1: User enters 0 → just print 0
-    if sequences == 0:
-        return [0]
 
-    # Case 2: User enters a positive number
-    elif sequences > 0:
+
+    if sequences > 0:
         a, b = 0, 1  # starting values of Fibonacci sequence
         sequence = [a]
 
@@ -50,7 +47,7 @@ def print_sequence(sequence, sequences):
         print(num)
 
 
-# --- Program execution using the same logic as before ---
+
 sequences = get_user_input()
 sequence = generate_fibonacci(sequences)
 print_sequence(sequence, sequences)
